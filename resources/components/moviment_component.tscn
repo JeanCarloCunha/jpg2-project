@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf11q68cn7wn"]
+
+[ext_resource type="Script" uid="uid://bjeojtvlx6avk" path="res://scripts/components/moviment_component.gd" id="1_r0pso"]
+
+[node name="MovimentComponent" type="Node2D"]
+script = ExtResource("1_r0pso")

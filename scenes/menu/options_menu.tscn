@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3u8pa30i13we"]
+
+[ext_resource type="Script" uid="uid://dhsrl4rnyy4xy" path="res://scripts/menu/options_menu.gd" id="1_y7bi1"]
+[ext_resource type="Script" uid="uid://p12qf25pmkgb" path="res://scripts/menu/interactable/audio_control.gd" id="2_gtsiv"]
+[ext_resource type="VideoStream" uid="uid://hfinldt7uf0k" path="res://resources/video/menu/option/musica02.ogv" id="3_gtsiv"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wjlk6"]
+color = Color(0.909596, 0, 0.441544, 1)
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y7bi1")
+
+[node name="MenuOptions" type="VBoxContainer" parent="Options"]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -56.0
+offset_right = 131.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="Options/MenuOptions"]
+layout_mode = 2
+text = "Tela cheia"
+
+[node name="AudioControl" type="HSlider" parent="Options/MenuOptions"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_gtsiv")
+
+[node name="Return" type="Button" parent="Options/MenuOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/hover_pressed = SubResource("StyleBoxLine_wjlk6")
+text = "Return"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Options"]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -7.0
+offset_right = 1144.0
+offset_bottom = 646.0
+stream = ExtResource("3_gtsiv")
+autoplay = true
+expand = true
+loop = true
+
+[connection signal="toggled" from="Options/MenuOptions/CheckButton" to="Options" method="_on_check_button_toggled"]
+[connection signal="value_changed" from="Options/MenuOptions/AudioControl" to="Options/MenuOptions/AudioControl" method="_on_value_changed"]
+[connection signal="button_down" from="Options/MenuOptions/Return" to="Options" method="_on_return_button_down"]

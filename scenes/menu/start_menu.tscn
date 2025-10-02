@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy64tsunlym0m"]
+
+[ext_resource type="Script" uid="uid://bpws7hvwfc4qv" path="res://scripts/menu/start_menu.gd" id="1_idqd0"]
+[ext_resource type="VideoStream" uid="uid://dxcc8pwvm5l6l" path="res://resources/video/teste/menu_bg.ogv" id="2_r0pvr"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_idqd0")
+
+[node name="StartMenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_idqd0")
+
+[node name="MenuOptions" type="VBoxContainer" parent="StartMenu"]
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 363.0
+offset_top = 214.0
+offset_right = -339.0
+offset_bottom = -186.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="StartMenu/MenuOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start"
+
+[node name="Options" type="Button" parent="StartMenu/MenuOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options
+"
+
+[node name="Quit" type="Button" parent="StartMenu/MenuOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit
+"
+
+[node name="BackgroundVideo" type="VideoStreamPlayer" parent="StartMenu"]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 646.0
+stream = ExtResource("2_r0pvr")
+autoplay = true
+expand = true
+loop = true
+
+[connection signal="button_down" from="StartMenu/MenuOptions/Start" to="StartMenu" method="_on_start_button_down"]
+[connection signal="pressed" from="StartMenu/MenuOptions/Start" to="." method="_on_start_pressed"]
+[connection signal="button_down" from="StartMenu/MenuOptions/Options" to="StartMenu" method="_on_options_button_down"]
+[connection signal="button_down" from="StartMenu/MenuOptions/Quit" to="StartMenu" method="_on_quit_button_down"]
