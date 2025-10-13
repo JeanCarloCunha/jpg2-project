@@ -23,6 +23,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y7bi1")
+chk_fullscreen_path = NodePath("MenuOptions/CheckButton")
+return_button_path = NodePath("MenuOptions/Return")
 
 [node name="MenuOptions" type="VBoxContainer" parent="Options"]
 top_level = true
@@ -57,11 +59,12 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxLine_wjlk6")
 text = "Return"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Options"]
-layout_mode = 0
-offset_left = -9.0
-offset_top = -7.0
-offset_right = 1144.0
-offset_bottom = 646.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stream = ExtResource("3_gtsiv")
 autoplay = true
 expand = true
@@ -70,3 +73,4 @@ loop = true
 [connection signal="toggled" from="Options/MenuOptions/CheckButton" to="Options" method="_on_check_button_toggled"]
 [connection signal="value_changed" from="Options/MenuOptions/AudioControl" to="Options/MenuOptions/AudioControl" method="_on_value_changed"]
 [connection signal="button_down" from="Options/MenuOptions/Return" to="Options" method="_on_return_button_down"]
+[connection signal="pressed" from="Options/MenuOptions/Return" to="Options" method="_on_return_pressed"]

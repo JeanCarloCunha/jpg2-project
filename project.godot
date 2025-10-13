@@ -22,12 +22,14 @@ buses/default_bus_layout=""
 [autoload]
 
 SceneSwitcher="*res://scripts/util/scene_switcher.gd"
-AudioPlayer="*res://scripts/util/audio_player.gd"
 UserSettings="*res://scripts/util/user_settings.gd"
+AudioPlayer="*res://scripts/util/audio_player.gd"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
